@@ -1,7 +1,20 @@
+buildscript{
+    ext{
+        sprintBootVersion = '1.5.6.RELEASE'
+    }
+    repositories{
+        mavenCentral()
+    }
+    dependencies{
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${sprintBootVersion}")
+    }
+}
+
 group 'com.peppermint.server'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
 
 sourceCompatibility = 1.8
 
@@ -10,5 +23,6 @@ repositories {
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile("org.springframework.boot:spring-boot-starter-web")
+    testCompile("org.springframework.boot:spring-boot-starter-test")
 }
